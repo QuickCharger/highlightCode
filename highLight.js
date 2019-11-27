@@ -100,10 +100,11 @@ var qii404 = {
 
                     // 进行高亮操作
                     var selectedText = window.getSelection().toString();
+					selectedText = selectedText.replace(/(^\s*)|(\s*$)/g, "")
 
                     console.log(selectedText);
 
-                    if(selectedText.length > 0 && selectedText.replace(/(\s)/g, '') != '') {
+                    if(selectedText.length > 0) {
                         this_.beginToHighlight(document.body, selectedText);
                     }
                 }
@@ -335,8 +336,9 @@ var qii404 = {
 
             if (document.activeElement) {
                 var selectedText = window.getSelection().toString();
+				selectedText = selectedText.replace(/(^\s*)|(\s*$)/g, "")
 
-                if(selectedText.length > 0 && selectedText.replace(/(\s)/g, '') != '') {
+                if(selectedText.length > 0) {
                     console.log(selectedText);
                     this_.clickEvent = e;
                     // this_.removeHighlight();
